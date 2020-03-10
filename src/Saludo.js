@@ -8,3 +8,5 @@ function Saludo(props){
         </div>
     )
 }
+
+export default Saludo;
