@@ -9,6 +9,9 @@ import Saludo from './Saludo';
 import TaskForm from './Task/Form';
 import ObjectiveForm from './Objective/Form';
 import ResumeToday from './Task/ResumeToday';
+import ModalFormObjective from './Objective/ModalForm';
+import ModalFormTask from './Task/ModalForm';
+
 function App() {
   return (
     <div className="App">
@@ -20,6 +23,10 @@ function App() {
       <ObjectiveForm />
       <Saludo mensaje="componente TaskResumeToday"/>
       <ResumeToday/>
+      <Saludo mensaje="componente ModalFormObjetivo"/>
+      <ModalFormObjective />
+      <Saludo mensaje="componente ModalFormTask"/>
+      <ModalFormTask />
     
     </div>
   );

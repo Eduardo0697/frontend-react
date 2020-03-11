@@ -53,16 +53,6 @@ function Form(props){
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <hr class="mb-4"></hr>
-                    <div class="col-md-6 mb-3">
-                        <button class="btn btn-danger btn-lg btn-block" type="submit">Cancel</button>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <button class="btn btn-success btn-lg btn-block" type="submit">Add Task</button>
-                    </div>
-                    
-                </div>
             </form>
         </div>
     )

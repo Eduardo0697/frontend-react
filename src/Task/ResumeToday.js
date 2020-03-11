@@ -1,4 +1,5 @@
 import React from 'react';
+import ModalFormTask from './ModalForm';
 
 function ResumeToday(props){
     console.log(props);
@@ -9,11 +10,9 @@ function ResumeToday(props){
                     <li class="list-group-item">
                         <div class="d-flex">
                             <div class="flex-grow-1">Task 1</div>
-                            <div class="">
-                                <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-outline-primary">Info</button>
-                                    <button type="button" class="btn btn-outline-warning">Edit</button>
-                                </div>
+                            <div class="d-flex flex-row">   
+                                <button type="button" class="btn btn-outline-primary mr-3">Info</button>
+                                <ModalFormTask/>
                             </div>
                         </div>    
                     </li>

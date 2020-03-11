@@ -4,9 +4,6 @@ function Form(props){
     console.log(props);
     return(
         <div className="form-task">
-            <div class="mb-4">
-                <p class="h3">Create your objective</p>
-            </div>
             <form class="needs-validation" noValidate="">
                 <div class="row">
                     <div class="col-md-8 mb-3">
@@ -69,16 +66,6 @@ function Form(props){
                             Please provide a valid length value.
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <hr class="mb-4"></hr>
-                    <div class="col-md-6 mb-3">
-                        <button class="btn btn-danger btn-lg " >Cancel</button>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <button class="btn btn-success btn-lg " type="submit">Create</button>
-                    </div>
-                    
                 </div>
             </form>
         </div>
