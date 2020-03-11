@@ -10,8 +10,8 @@ function ResumeToday(props){
               <p className="h3">Today Tasks</p>
             </div>
            
-            <div class="card text-left mb-3" >
-                <ul class="list-group list-group-flush">
+            <div className="card text-left mb-3" >
+                <ul className="list-group list-group-flush">
                     { props.tasks }
                 </ul>
             </div>

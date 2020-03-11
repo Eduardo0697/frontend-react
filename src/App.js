@@ -50,7 +50,7 @@ function App() {
                         <li className="list-group-item">
                             <div className="d-flex">
                                 <div className="flex-grow-1">{ task.taskTitle }</div>
-                                <button className="btn btn-outline-success mr-3" type="button" data-toggle="button" aria-pressed="false" autocomplete="off">Done</button>
+                                <button className="btn btn-outline-success mr-3" type="button" data-toggle="button" aria-pressed="false" autoComplete="off">Done</button>
                                 <ModalFormTask infoTask={ task } />                 
                             </div>    
                         </li>
