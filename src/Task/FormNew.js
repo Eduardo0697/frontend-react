@@ -1,22 +1,21 @@
 import React from 'react';
 
-function Form(props){
-    console.log('FORM TASK')
-    console.log(props.info.taskTitle);
+function FormNew(){
+    console.log('FORM NEW TASK')
     return(
         <div className="form-task">
             <form class="needs-validation" noValidate="">
                 <div class="row">
                     <div class="col-12 mb-3">
                         <label for="titleTask">Title</label>
-                        <input type="text" class="form-control" id="titleTask" placeholder="Title"  required="" defaultValue={ props.info.taskTitle }></input>
+                        <input type="text" class="form-control" id="titleTask" placeholder="Title"  required=""></input>
                         <div class="invalid-feedback">
                             Valid task title is required.
                         </div>
                     </div>
                     <div class="col-12 mb-3">
                         <label for="descriptionTask">Description</label>
-                        <textarea rows="2" class="form-control" id="descriptionTask" placeholder="Description"  required="" defaultValue={ props.info.description }></textarea>
+                        <textarea rows="2" class="form-control" id="descriptionTask" placeholder="Description"  required=""></textarea>
                         <div class="invalid-feedback">
                             Valid last name is required.
                         </div>
@@ -25,7 +24,7 @@ function Form(props){
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="frequencyTask">Frequency</label>
-                        <select class="custom-select d-block w-100" id="frequencyTask" required="" defaultValue={ props.info.frequency }>
+                        <select class="custom-select d-block w-100" id="frequencyTask" required="" >
                         <option value="once">Once</option>
                         <option value="everyday">Everyday</option>
                         <option value="everyweek">Every Week</option>
@@ -42,7 +41,7 @@ function Form(props){
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="importanceTask">Importance</label>
-                        <select class="custom-select d-block w-100" id="importanceTask" required="" defaultValue={ props.info.importance }>
+                        <select class="custom-select d-block w-100" id="importanceTask" required="">
                         <option value="">Choose...</option>
                         <option value="1">Low</option>
                         <option value="2">Medium</option>
@@ -58,4 +57,4 @@ function Form(props){
     )
 }
 
-export default Form;
+export default FormNew;

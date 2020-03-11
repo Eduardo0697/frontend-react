@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.container-max{
+  max-width: 1200px;
+}
+.full-width{
+  position: relative;
+  width: 100vw !important;
+  left: calc(-1 * (100vw - 100%) / 2) !important;
+  right: 0 !important;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: none !important;
+}

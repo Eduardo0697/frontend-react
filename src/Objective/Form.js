@@ -1,6 +1,7 @@
 import React from 'react';
 
 function Form(props){
+    console.log('Form!')
     console.log(props);
     return(
         <div className="form-task">
@@ -8,7 +9,7 @@ function Form(props){
                 <div class="row">
                     <div class="col-md-8 mb-3">
                         <label for="titleObjective">Title</label>
-                        <input type="text" class="form-control" id="titleObjective" placeholder="Title"  required=""></input>
+                        <input type="text" class="form-control" id="titleObjective" placeholder="Title"  required="" value="{ props.info.taskTitle }"></input>
                         <div class="invalid-feedback">
                             Valid Objective title is required.
                         </div>
