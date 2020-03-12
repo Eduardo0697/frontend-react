@@ -4,6 +4,7 @@ import FormTask from './Form';
 function ModalForm(props){
     //console.log('ModalForm!')
     //console.log(props.infoTask)
+    
     const data = props.infoTask;
     //console.log(data._id)
     const idModal = `modal-${data._id}`;
@@ -21,6 +22,7 @@ function ModalForm(props){
         }else{
             //console.log('Edit desactivado')
             setIsButtonDisabled(true)
+            //props.callback('mi parametro')
         }
     };
 
@@ -41,7 +43,7 @@ function ModalForm(props){
                     </button>
                 </div>
                 <div className="modal-body">
-                    <FormTask info={ data } activeFields={ isButtonDisabled }/>
+                    <FormTask info={ data } activeFields={ isButtonDisabled } callback={ props.callback }/>
                 </div>
                 <div className="modal-footer">
                     <div className="flex-grow-1">

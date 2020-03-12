@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 function Form(props){
     console.log('FORM TASK')
     console.log(props.activeFields)
+    props.callback('Hola desde form')
 
 
 

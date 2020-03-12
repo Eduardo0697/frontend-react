@@ -14,7 +14,7 @@ import ModalFormObjective from './Objective/ModalForm';
 import ModalFormTask from './Task/ModalForm';
 import Navigation from './Home/Navigation';
 import axios from 'axios';
-
+import ResumeGoals from './Objective/ResumeGoals';
 
 
 
@@ -40,6 +40,35 @@ function App() {
   ];
 
   const [isLoading, setLoading] = useState(true);
+  const [goalTasks, setGoalTasks] = useState([]);
+
+  useEffect( () => {
+    // axios
+    //   .get('https://infinite-river-96726.herokuapp.com/objetivos/usuario/tasks?email=user1@hotmail.com&idObj=5e65ef9e3e4e8647ac35f518')
+    //   .then( (result) => {
+    //     setAuthors(result.data);
+    //     setLoading(false);
+    //   })
+    //   .catch( (err) =>  console.log(err))
+
+  },[] );
+
+  const myFunction = (param) => {
+    console.log('se ejecuto');
+    console.log(param);
+  }
+
+  const recoverObjetivosByEmail = (email) => {
+    console.log('Este es el email desde App.js');
+    console.log(email);
+    axios
+      .get(`https://infinite-river-96726.herokuapp.com/objetivos/tasks/${ email }`)
+      .then( (res) => {
+        console.log(res.data);
+      })
+      .catch( (err) =>  console.log(err))
+
+  }
 
   const validation = () => {
     if(isLoading){
@@ -51,7 +80,7 @@ function App() {
                             <div className="d-flex">
                                 <div className="flex-grow-1">{ task.taskTitle }</div>
                                 <button className="btn btn-outline-success mr-3" type="button" data-toggle="button" aria-pressed="false" autoComplete="off">Done</button>
-                                <ModalFormTask infoTask={ task } />                 
+                                <ModalFormTask infoTask={ task } callback={ myFunction }  />                 
                             </div>    
                         </li>
                 )
@@ -71,7 +100,12 @@ function App() {
       <Navigation/>
       <div className="container container-max">
 
-        <ResumeToday tasks={ validation() }/>
+        <ResumeToday tasks={ validation() } callbackEmail = { recoverObjetivosByEmail } />
+
+        <hr/>
+        <h1>Page Goals</h1>
+
+        <ResumeGoals/>
         
         
       </div>
