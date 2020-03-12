@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 
 function FormNewGoal(props){
+
+    const status = props.succesPost;
+    console.log(`Status de peticion ${ status }`)
+
+    const [statusAlert , setStatusAlert] = useState('');  
     const [newGoal, setNewGoal] = useState({});
     const [title, setTitle] = useState('');
     const [email, setEmail] = useState(''); 
@@ -12,6 +17,28 @@ function FormNewGoal(props){
     const [taskDescription, setTaskDescription] = useState('');
     const [taskImportance, setTaskImportance] = useState('');
     const [taskFrequency, setTaskFrequency] = useState('');
+    const [dismissAlert, setDismissAlert] = useState(false);
+
+    const alertReturned= () => {
+        if(!status || dismissAlert){
+            return(
+                <div></div>
+            )
+        }else{
+            return(
+                <div className="alert alert-success alert-dismissible fade show" role="alert">
+                    <h4 className="alert-heading"> Well done!</h4>
+                    <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <p>Great, you have already created your goal!</p>
+                    <hr></hr>
+                    <p className="mb-0">Now close the window! Ang go for more!</p>
+                </div>
+            )
+        }
+        
+    }
 
     const onChangeAnyInput = (event) => {
         
@@ -67,14 +94,23 @@ function FormNewGoal(props){
         } )
         console.log(newGoal)
         props.callbackNewGoal(newGoal);
+        
              
     };
+
+    const onClickClose = () => {
+        
+        document.getElementById("formNewGoalId").reset();
+        setDismissAlert(true);
+        
+    }
 
     
     return(
         <div className="form-task text-left">
+            { alertReturned() }
             
-            <form className="needs-validation" noValidate="" onSubmit={ onSubmitHandler } >
+            <form id="formNewGoalId" className="needs-validation" noValidate="" onSubmit={ onSubmitHandler } >
                 <fieldset disabled={ props.activeFields }>
                     <div className="row">
                         <div className="col-md-8 mb-3">
@@ -161,7 +197,7 @@ function FormNewGoal(props){
                     </div>
                     <div className="row mx-2 mt-3">
                         <div className="flex-grow-1">
-                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="button" onClick={ onClickClose } className="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
                         <div>
                             <button type="submit"  className="btn btn-success" value="submit" ><span><i className="fas fa-save"></i></span></button>

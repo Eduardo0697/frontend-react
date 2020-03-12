@@ -156,17 +156,20 @@ function App() {
   }
 
   //New Goal
-
+  const [statusCrearObjetivo, setStatusCrearObjetivo] = useState(false);
+  
   const recoverNewGoal = (goal) => {
     console.log('POST')
     console.log(goal)
     const email = goal.emailAssociated;
     
-    axios
-      .post(`https://infinite-river-96726.herokuapp.com/objetivos/${email}`, goal)
+    axios.post(`https://infinite-river-96726.herokuapp.com/objetivos/${email}`, goal)
       .then((res)=> {
         console.log('Objetivo Subido')
-        console.log(res)
+        console.log(res.request.status)
+        if(res.request.status === 200) setStatusCrearObjetivo(true)
+        else setStatusCrearObjetivo(false)
+        
       })
       .catch( (err) => {
         console.log(err)
@@ -211,7 +214,7 @@ function App() {
                 <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" className="card-img" alt="..."></img>
                 <div className="card-img-overlay d-flex justify-content-center">
                   
-                    <ModalNewGoal callbackNewGoal = { recoverNewGoal }/>
+                    <ModalNewGoal callbackNewGoal = { recoverNewGoal }  succesPost= { statusCrearObjetivo }/>
                  
                 </div>
               </div>
