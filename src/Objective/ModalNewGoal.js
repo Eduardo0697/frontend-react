@@ -31,9 +31,6 @@ function ModalForm(props){
                             <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     </div>
                     <div>
-                        <button type="button"  className="btn btn-outline-warning mr-3" data-toggle="button" aria-pressed="false" autoComplete="off"> 
-                            <span><i className="fas fa-edit"></i></span>
-                        </button>
                         <button type="submit" className="btn btn-success" ><span><i className="fas fa-save"></i></span></button>
                     </div> 
                 </div>
