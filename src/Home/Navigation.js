@@ -3,8 +3,8 @@ import React from 'react';
 function Navigation(){
     return(
         <div className="Navigation mb-5">
-            <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-                <a className="navbar-brand" href="#">Goals</a>
+            <nav className="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+                <a className="navbar-brand" href="#">Focus</a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -19,9 +19,9 @@ function Navigation(){
                                 Goals
                             </a>
                             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a className="dropdown-item" href="#">My Goals</a>
+                                <a className="dropdown-item" href="#resumeGoals">My Goals</a>
                                 <div className="dropdown-divider"></div>
-                                <a className="dropdown-item" href="#">New Goal</a>
+                                <a className="dropdown-item" href="#createGoal">New Goal</a>
                             </div>
                         </li>
                         <li className="nav-item dropdown">
@@ -29,7 +29,7 @@ function Navigation(){
                                 Tasks
                             </a>
                             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a className="dropdown-item" href="#">Today</a>
+                                <a className="dropdown-item" href="#resumeTodayTasks">Today</a>
                                 <div className="dropdown-divider"></div>
                                 <a className="dropdown-item" href="#">Week</a>
                                 <div className="dropdown-divider"></div>

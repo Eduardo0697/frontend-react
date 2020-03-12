@@ -49,7 +49,7 @@ function ResumeToday(props){
             </div>
 
             <div className="text-left">
-                <ModalNewTask/>
+                <ModalNewTask  />
             </div>
         </div>
     )
