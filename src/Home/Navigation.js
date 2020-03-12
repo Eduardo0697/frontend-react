@@ -29,6 +29,8 @@ function Navigation(){
                                 Tasks
                             </a>
                             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a className="dropdown-item" href="#createNewTask">New Task</a>
+                                <div className="dropdown-divider"></div>
                                 <a className="dropdown-item" href="#resumeTodayTasks">Today</a>
                                 <div className="dropdown-divider"></div>
                                 <a className="dropdown-item" href="#">Week</a>

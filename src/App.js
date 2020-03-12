@@ -188,20 +188,7 @@ function App() {
 
       <HeroSlider/>
 
-        <div id="resumeTodayTasks" className="min-height-30 mb-5">
-          <h4>Your tasks for today</h4>
-          <ResumeToday tasks={ tasksReturned() } callbackEmail = { recoverTasksByEmail } />
-        </div>
-
-        <div id="resumeGoals" className="min-height-30 mb-5">
-          <h4>Your Goals</h4>
-          
-
-          <ResumeGoals goals = { goalsReturned() } callbackEmaiGoals = { recoverGoalsByEmail }/>
-        </div>
-        
-
-        <div id="createGoal" className="min-height-30 mb-5">
+      <div id="createGoal" className="min-height-30 mb-5 m-xl-big">
           <div className="row featurette">
             <div className="col-md-7">
               <h2 className="featurette-heading">Hey! Create a new <span className="text-muted">Goal !</span></h2>
@@ -222,9 +209,42 @@ function App() {
           </div>
         </div>
 
-        <div id="createTask" className="min-height-30 mb-5">
-          <h4>Create a new Task</h4>
+        <div id="createNewTask" className="min-height-30 my-3 my-md-5">
+          <div className="row featurette">
+            
+            <div className="col-md-5 order-2 order-md-1">
+               <div className="card  text-dark text-center">
+                <img src="https://images.unsplash.com/photo-1581007871115-f14bc016e0a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=615&q=80" className="card-img img-max-fit" alt="..."></img>
+                <div className="card-img-overlay d-flex justify-content-center">
+                  
+                    <ModalNewGoal callbackNewGoal = { recoverNewGoal }  succesPost= { statusCrearObjetivo }/>
+                 
+                </div>
+              </div>
+            </div>
+            <div className="col-md-7 order-1 order-md-2">
+              <h2 className="featurette-heading">Now add <span className="text-muted">tasks </span> to a current goal</h2>
+              <p className="lead text-justify">
+              It is the work to be done.  Tasks keep us moving, and organizing them into a to-do list can be quite useful in helping us manage our time.  Tasks inform us of what, when and sometimes the how in our daily lives, but they can be ambiguous as to the why. 
+              </p>
+            </div>
+          </div>
         </div>
+
+        <div id="resumeTodayTasks" className="min-height-30 mb-5">
+          <h4>Your tasks for today</h4>
+          <ResumeToday tasks={ tasksReturned() } callbackEmail = { recoverTasksByEmail } />
+        </div>
+
+        <div id="resumeGoals" className="min-height-30 mb-5">
+          <h4>Your Goals</h4>
+          
+
+          <ResumeGoals goals = { goalsReturned() } callbackEmaiGoals = { recoverGoalsByEmail }/>
+        </div>
+        
+
+        
       </div>
     </div>
   );

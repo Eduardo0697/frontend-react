@@ -136,3 +136,12 @@
 .img-shadow{
   background-color: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
 }
+
+.img-max-fit{
+  max-height: 350px;
+  object-fit: cover;
+}
+
+.m-xl-big{
+  margin-bottom: 7rem !important;
+}
