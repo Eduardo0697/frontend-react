@@ -9,7 +9,7 @@ function HeroSlider(){
         <div className="hero-text">
           <h1>Welcome to Focus!</h1>
           <p>Now you can administrate your goals</p>
-          <a href="#createGoal" className="btn btn-outline-light">New Goal</a>
+          <a href="#createGoal" className="btn btn-outline-light">Get Started</a>
         </div>
     </div> 
         

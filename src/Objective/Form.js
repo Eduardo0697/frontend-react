@@ -19,32 +19,32 @@ function Form(props){
     return(
         <div className="form-task">
             <p className="h6">ID: { props.info._id }</p>
-            <form class="needs-validation" noValidate="">
+            <form className="needs-validation" noValidate="">
                 <fieldset disabled={ props.activeFields }>
-                    <div class="row">
-                        <div class="col-md-8 mb-3">
-                            <label for="titleObjective">Title</label>
-                            <input type="text" class="form-control" id="titleObjective" placeholder="Title"  required={ true } defaultValue={ props.info.title }></input>
+                    <div className="row">
+                        <div className="col-md-8 mb-3">
+                            <label htmlFor="titleObjective">Title</label>
+                            <input type="text" className="form-control" id="titleObjective" placeholder="Title"  required={ true } defaultValue={ props.info.title }></input>
                         </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="titleObjective">User email</label>
-                            <input type="email" class="form-control" id="titleObjective" placeholder="mail@example.com"  required={ true } defaultValue={ props.info.emailAssociated }></input>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 mb-3">
-                            <label for="descriptionObjective">Description</label>
-                            <textarea rows="2" class="form-control" id="descriptionObjective" placeholder="Description"  required={ true } defaultValue={ props.info.description }></textarea>
-                        </div>
-                        <div class="col-12 mb-3">
-                            <label for="obstaclesObjective">Obstacles</label>
-                            <textarea rows="2" class="form-control" id="obstaclesObjective" placeholder="Obstacles"  required={ true } defaultValue={ props.info.obstacles }></textarea>
+                        <div className="col-md-4 mb-3">
+                            <label htmlFor="titleObjective">User email</label>
+                            <input type="email" className="form-control" id="titleObjective" placeholder="mail@example.com"  required={ true } defaultValue={ props.info.emailAssociated }></input>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="typeObjective">Type</label>
-                            <select class="custom-select d-block w-100" id="typeObjective" required={ true } defaultValue={ props.info.typeObjective }>
+                    <div className="row">
+                        <div className="col-12 mb-3">
+                            <label htmlFor="descriptionObjective">Description</label>
+                            <textarea rows="2" className="form-control" id="descriptionObjective" placeholder="Description"  required={ true } defaultValue={ props.info.description }></textarea>
+                        </div>
+                        <div className="col-12 mb-3">
+                            <label htmlFor="obstaclesObjective">Obstacles</label>
+                            <textarea rows="2" className="form-control" id="obstaclesObjective" placeholder="Obstacles"  required={ true } defaultValue={ props.info.obstacles }></textarea>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-md-6 mb-3">
+                            <label htmlFor="typeObjective">Type</label>
+                            <select className="custom-select d-block w-100" id="typeObjective" required={ true } defaultValue={ props.info.typeObjective }>
                                 <option value="">Choose...</option>
                                 <option value="academic">Academic</option>
                                 <option value="professional">Professional</option>
@@ -55,9 +55,9 @@ function Form(props){
                                 <option value="relationship">Relationship</option>
                             </select>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="Length">Length</label>
-                            <select class="custom-select d-block w-100" id="importanceTask" required={ true } defaultValue={ props.info.length }>
+                        <div className="col-md-6 mb-3">
+                            <label htmlFor="Length">Length</label>
+                            <select className="custom-select d-block w-100" id="importanceTask" required={ true } defaultValue={ props.info.length }>
                                 <option value="">Choose...</option>
                                 <option>short</option>
                                 <option>medium</option>

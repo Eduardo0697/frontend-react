@@ -158,10 +158,14 @@ function App() {
   //New Goal
 
   const recoverNewGoal = (goal) => {
+    console.log('POST')
+    console.log(goal)
     const email = goal.emailAssociated;
+    
     axios
       .post(`https://infinite-river-96726.herokuapp.com/objetivos/${email}`, goal)
       .then((res)=> {
+        console.log('Objetivo Subido')
         console.log(res)
       })
       .catch( (err) => {
@@ -197,15 +201,15 @@ function App() {
         <div id="createGoal" className="min-height-30 mb-5">
           <div className="row featurette">
             <div className="col-md-7">
-              <h2 className="featurette-heading">Hey! Create a new <span class="text-muted">Goal !</span></h2>
+              <h2 className="featurette-heading">Hey! Create a new <span className="text-muted">Goal !</span></h2>
               <p className="lead text-justify">
               First consider what you want to achieve, and then commit to it. Set SMART (specific, measureable, attainable, relevant and time-bound) goals that motivate you and write them down to make them feel tangible. Then plan the tasks you must take to realize your goal, and cross off each one as you work through them.
               </p>
             </div>
             <div className="col-md-5">
-               <div class="card  text-dark text-center">
-                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" class="card-img" alt="..."></img>
-                <div class="card-img-overlay d-flex justify-content-center">
+               <div className="card  text-dark text-center">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" className="card-img" alt="..."></img>
+                <div className="card-img-overlay d-flex justify-content-center">
                   
                     <ModalNewGoal callbackNewGoal = { recoverNewGoal }/>
                  

@@ -10,14 +10,14 @@ function Form(props){
                 <fieldset disabled={ props.activeFields }>
                     <div className="row">
                         <div className="col-12 mb-3">
-                            <label for="titleTask">Title</label>
+                            <label htmlFor="titleTask">Title</label>
                             <input type="text" className="form-control" id="titleTask" placeholder="Title"  required="" defaultValue={ props.info.taskTitle }></input>
                             <div className="invalid-feedback">
                                 Valid task title is required.
                             </div>
                         </div>
                         <div className="col-12 mb-3">
-                            <label for="descriptionTask">Description</label>
+                            <label htmlFor="descriptionTask">Description</label>
                             <textarea rows="2" className="form-control" id="descriptionTask" placeholder="Description"  required="" defaultValue={ props.info.description }></textarea>
                             <div className="invalid-feedback">
                                 Valid last name is required.
@@ -26,7 +26,7 @@ function Form(props){
                     </div>
                     <div className="row">
                         <div className="col-md-6 mb-3">
-                            <label for="frequencyTask">Frequency</label>
+                            <label htmlFor="frequencyTask">Frequency</label>
                             <select className="custom-select d-block w-100" id="frequencyTask" required="" defaultValue={ props.info.frequency }>
                                 <option value="once">Once</option>
                                 <option value="everyday">Everyday</option>
@@ -43,7 +43,7 @@ function Form(props){
                             </div>
                         </div>
                         <div className="col-md-6 mb-3">
-                            <label for="importanceTask">Importance</label>
+                            <label htmlFor="importanceTask">Importance</label>
                             <select className="custom-select d-block w-100" id="importanceTask" required="" defaultValue={ props.info.importance }>
                                 <option value="">Choose...</option>
                                 <option value="1">Low</option>

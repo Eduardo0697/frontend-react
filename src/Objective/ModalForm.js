@@ -19,22 +19,22 @@ function ModalForm(props){
     return(
         <div className="modal-form-task">
            
-            <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target={ referenceIdModal }>
+            <button type="button" className="btn btn-outline-info" data-toggle="modal" data-target={ referenceIdModal }>
                 Info
             </button>
-            <div class="modal fade" id={ idModal } tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="objectiveModalTitle">About your goal</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <div className="modal fade" id={ idModal } tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div className="modal-content">
+                <div className="modal-header">
+                    <h5 className="modal-title" id="objectiveModalTitle">About your goal</h5>
+                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div className="modal-body">
                     <FormGoals info={ data } activeFields={ isButtonDisabled } callback={ props.callback }/>
                  </div>
-                <div class="modal-footer">
+                <div className="modal-footer">
                     <div className="flex-grow-1">
                             <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     </div>
