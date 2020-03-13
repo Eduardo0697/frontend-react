@@ -125,6 +125,45 @@ function App() {
       })
   }
 
+  //Actualizar un goal
+
+  const [ statusUpdateGoal, setStatusUpdateGoal] = useState(false);
+  const changeStatusUpdateGoal = (formClosed) => {
+    if(formClosed){
+      setStatusUpdateGoal(false)
+      
+    }
+  }
+
+  const updateGoal = (goalUpdated) =>{
+    console.log('Actualizare el goal!')
+    //console.log(goalUpdated)
+
+    const email = goalUpdated.emailAssociated;
+    const idObj = goalUpdated.id;
+
+    const goal ={
+      title : goalUpdated.taskTitle,
+      description : goalUpdated.description,
+      typeObjective: goalUpdated.typeObjective,
+      length: goalUpdated.length,
+      obstacles: goalUpdated.obstacles
+    }
+    axios.patch(`https://infinite-river-96726.herokuapp.com/objetivos/usuario/objetivo?idObj=${idObj}&email=${email}`, goal)
+      .then((res) => {
+        console.log('Goal actualizado')
+        console.log(res.request.status)
+        if(res.request.status === 200) setStatusUpdateGoal(true)
+        else setStatusUpdateGoal(false)
+
+      })
+      .catch((err) => {
+        console.log(err);
+        setStatusUpdateGoal(false)
+      })
+    
+  }
+
   const goalsReturned = () =>{
 
     if(isLoadingGoals){
@@ -149,7 +188,7 @@ function App() {
                           <div className="d-flex">
                               <div className="flex-grow-1">{ goal.title }</div>
                               <button className="btn btn-outline-success mr-3" type="button" data-toggle="button" aria-pressed="false" autoComplete="off">Done</button>
-                              <ModalFormGoal infoGoal={ goal } />                 
+                              <ModalFormGoal infoGoal={ goal } callbackUpdateGoal = { updateGoal } succesUpdate= { statusUpdateGoal } callbackStatus= { changeStatusUpdateGoal } />                 
                           </div>    
                       </li>
                     )

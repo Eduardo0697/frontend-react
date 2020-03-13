@@ -6,15 +6,9 @@ function ModalForm(props){
     const data = props.infoGoal;
     const idModal = `modal-${data._id}`;
     const referenceIdModal = `#${idModal}`;
-    const [ isButtonDisabled, setIsButtonDisabled ] = useState(true);
+    
 
-    const onClickEditButton = (event) => {
-        if(event.currentTarget.attributes["aria-pressed"].value === "true"){
-            setIsButtonDisabled(false)
-        }else{
-            setIsButtonDisabled(true)
-        }
-    };
+    
     
     return(
         <div className="modal-form-task">
@@ -27,24 +21,11 @@ function ModalForm(props){
                 <div className="modal-content">
                 <div className="modal-header">
                     <h5 className="modal-title" id="objectiveModalTitle">About your goal</h5>
-                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
+                    
                 </div>
                 <div className="modal-body">
-                    <FormGoals info={ data } activeFields={ isButtonDisabled } callback={ props.callback }/>
+                    <FormGoals info={ data }  callbackUpdateGoal={ props.callbackUpdateGoal }  succesUpdate= { props.statusUpdateGoal } callbackStatus= { props.callbackStatus }/>
                  </div>
-                <div className="modal-footer">
-                    <div className="flex-grow-1">
-                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    </div>
-                    <div>
-                        <button type="button" onClick={ onClickEditButton } className="btn btn-outline-warning mr-3" data-toggle="button" aria-pressed="false" autoComplete="off"> 
-                            <span><i className="fas fa-edit"></i></span>
-                        </button>
-                        <button type="submit" className="btn btn-success" disabled={ isButtonDisabled }><span><i className="fas fa-save"></i></span></button>
-                    </div> 
-                </div>
                 </div>
             </div>
             </div>
