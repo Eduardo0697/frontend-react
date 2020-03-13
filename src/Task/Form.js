@@ -14,6 +14,7 @@ function Form(props){
         }
     };
 
+    
     const [taskUpdated, setTaskUpdated] = useState(props.info);
 
     const [idGoal, setIdGoal] = useState(props.info.idGoal)
@@ -54,6 +55,8 @@ function Form(props){
         if(event.target.id === 'desTaskId') setDescription(event.target.value)
         if(event.target.id === 'importanceTaskId') setImportance(event.target.value)
         if(event.target.id === 'frequencyTaskId') setFrequency(event.target.value)
+        if(event.target.id === 'taskCompletedId') setIsAcomplished(event.target.value)
+        
         
         setTaskUpdated( {
             idGoal: props.info.idGoal,
@@ -103,7 +106,20 @@ function Form(props){
             { alertReturned() }
             <form id="formUpdateTask" className="needs-validation" noValidate="" onSubmit={ onSubmitHandler }>
                 <fieldset disabled={ isButtonDisabled }>
+                    <div className="row justify-content-center">
+                        <div className="col-auto mb-3">
+                        
+                            <label htmlFor="taskCompletedId">Task Status</label>
+                            <select onChange={ onChangeAnyInput }  className="custom-select d-block w-100" id="taskCompletedId" required="" defaultValue={ props.info.isAcomplished }>
+                                <option value="">Choose...</option>
+                                <option value="true">Done</option>
+                                <option value="false">In progress</option>
+                            </select>
+                        
+                        </div>
+                    </div>
                     <div className="row">
+                        
                         <div className="col-12 mb-3">
                             <label htmlFor="titleTaskId">Title</label>
                             <input onChange={ onChangeAnyInput } type="text" className="form-control" id="titleTaskId" placeholder="Title"  required="" defaultValue={ props.info.taskTitle }></input>

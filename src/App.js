@@ -133,12 +133,22 @@ function App() {
           </div>
         )
       }else{
+        let stateTask = "In Progress";
+        let classTask = "danger"
         return goalTasks.map( (task) => {
+          //console.log(task)
+          
+          stateTask = "In Progress";
+          classTask = "danger";
+          if(task.isAcomplished){
+            stateTask = "Done";
+            classTask = "success";
+          }
           return (
                       <li className="list-group-item">
                           <div className="d-flex">
                               <div className="flex-grow-1">{ task.taskTitle }</div>
-                              <button className="btn btn-outline-success mr-3" type="button" data-toggle="button" aria-pressed="false" autoComplete="off">Done</button>
+                              <button className={ `btn btn-outline-${classTask} mr-3` }>{stateTask}</button>
                               <ModalFormTask infoTask={ task } callbackUpdateTask = { updateTask } succesUpdate= { statusUpdateTask } callbackStatus= { changeStatusUpdateTask } />                 
                           </div>    
                       </li>
@@ -233,7 +243,7 @@ function App() {
                       <li className="list-group-item">
                           <div className="d-flex">
                               <div className="flex-grow-1">{ goal.title }</div>
-                              <button className="btn btn-outline-success mr-3" type="button" data-toggle="button" aria-pressed="false" autoComplete="off">Done</button>
+                
                               <ModalFormGoal infoGoal={ goal } callbackUpdateGoal = { updateGoal } succesUpdate= { statusUpdateGoal } callbackStatus= { changeStatusUpdateGoal } />                 
                           </div>    
                       </li>

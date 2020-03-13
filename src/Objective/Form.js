@@ -5,11 +5,23 @@ function Form(props){
     //console.log(props);
 
     const tasksAssociated = () =>{
+        let stateTask = "In Progress";
+        let classTask = "danger"
+
         return props.info.tasks.map( (task) => {
+
+          stateTask = "In Progress";
+          classTask = "danger";
+          if(task.isAcomplished){
+            stateTask = "Done";
+            classTask = "success";
+          }
+
             return (
                         <li className="list-group-item">
                             <div className="d-flex">
-                                <div className="flex-grow-1">{ task.taskTitle }</div>               
+                                <div className="flex-grow-1">{ task.taskTitle }</div> 
+                                <button className={ `btn btn-outline-${classTask} mr-3` }>{stateTask}</button>              
                             </div>    
                         </li>
                     )
