@@ -47,10 +47,6 @@ function ResumeToday(props){
                     { props.tasks }
                 </ul>
             </div>
-
-            <div className="text-left">
-                <ModalNewTask  />
-            </div>
         </div>
     )
 }

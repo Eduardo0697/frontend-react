@@ -17,6 +17,9 @@ import axios from 'axios';
 import ResumeGoals from './Objective/ResumeGoals';
 import HeroSlider from './Home/HeroSlider'
 import ModalNewGoal from './Objective/ModalNewGoal';
+import ModalCreateTask from './Task/ModalCreateTask';
+import HeroFooter from './Home/HeroFooter';
+import Footer from './Home/Footer';
 
 
 
@@ -34,7 +37,7 @@ function App() {
   const recoverTasksByEmail = (email) => {
     //console.log('Este es el email desde App.js');
     //console.log(email);
-    setLoading(true);
+    //setLoading(true);
     axios
       .get(`https://infinite-river-96726.herokuapp.com/objetivos/tasks/${ email }`)
       .then( (res) => {
@@ -64,14 +67,14 @@ function App() {
     if(isLoading){
           if(messageError){
             return(
-              <div className="text-center">
-                <p className="h4">No task founded</p>
+              <div className="d-flex justify-content-center min-h-300">
+                <p className="h4 align-self-center">No task founded</p>
               </div>
             )
           }else{
             return(
-              <div className="text-center">
-                <p className="h4">Waiting for search</p>
+              <div className="d-flex justify-content-center min-h-300">
+                <p className="h4 align-self-center">Waiting for search</p>
               </div>
             )
           }
@@ -79,8 +82,8 @@ function App() {
 
       if(messageError){
         return(
-          <div className="text-center">
-            <p className="h4">No task founded</p>
+          <div className="d-flex justify-content-center min-h-300">
+            <p className="h4 align-self-center">No task founded</p>
           </div>
         )
       }else{
@@ -100,7 +103,7 @@ function App() {
   }
 
   const recoverGoalsByEmail = (email) => {
-    setLoading(true);
+    //setLoading(true);
     axios
       .get(`https://infinite-river-96726.herokuapp.com/objetivos/usuario?email=${ email }`)
       .then( (res) => {
@@ -127,17 +130,17 @@ function App() {
     if(isLoadingGoals){
       if(messageErrorGoals){
         return(
-          <div className="text-center"><p className="h4">No goals founded</p></div>
+          <div className="d-flex justify-content-center min-h-300"><p className="h4 align-self-center">No goals founded</p></div>
         )
       }else{
         return(
-          <div className="text-center"><p className="h4">Waiting for search</p></div>
+          <div className="d-flex justify-content-center min-h-300"><p className="h4 align-self-center">Waiting for search</p></div>
         )
       }
     }else{
       if(messageErrorGoals){
         return(
-          <div className="text-center"><p className="h4">No goals founded</p></div>
+          <div className="d-flex justify-content-center min-h-300"><p className="h4 align-self-center">No goals founded</p></div>
         )
       }else{
         return goals.map( (goal) => {
@@ -176,6 +179,40 @@ function App() {
       })
   }
 
+  //Add Task To Goal
+  const [statusAddTaks, setStatusAddTask] = useState(false);
+
+  const addTaskToGoal = (object) => {
+    console.log('Add Task');
+    const email = object.email;
+    const idObj = object.id;
+    const task ={
+      taskTitle : object.taskTitle,
+      description : object.description,
+      frequency: object.frequency,
+      isAccomplished: false
+    }
+    axios.patch(`https://infinite-river-96726.herokuapp.com/objetivos/usuario/tasks?idObj=${ idObj }&email=${ email }`, task)
+      .then((res) => {
+        console.log('Task añadida')
+        console.log(res.request.status)
+        if(res.request.status === 200) setStatusAddTask(true)
+        else setStatusAddTask(false)
+
+      })
+      .catch((err) => {
+        console.log(err);
+        setStatusAddTask(false)
+      })
+    //setStatusAddTask(true)
+  }
+
+  const changeStatusTask = (formClosed) => {
+    if(formClosed){
+      setStatusAddTask(false)
+      
+    }
+  }
 
   return (
     <div className="App">
@@ -208,6 +245,9 @@ function App() {
             </div>
           </div>
         </div>
+        <div id="resumeGoals" className="min-height-30 mb-5">
+          <ResumeGoals goals = { goalsReturned() } callbackEmaiGoals = { recoverGoalsByEmail }/>
+        </div>
 
         <div id="createNewTask" className="min-height-30 my-3 my-md-5">
           <div className="row featurette">
@@ -217,7 +257,7 @@ function App() {
                 <img src="https://images.unsplash.com/photo-1581007871115-f14bc016e0a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=615&q=80" className="card-img img-max-fit" alt="..."></img>
                 <div className="card-img-overlay d-flex justify-content-center">
                   
-                    <ModalNewGoal callbackNewGoal = { recoverNewGoal }  succesPost= { statusCrearObjetivo }/>
+                    <ModalCreateTask callbackNewTask= { addTaskToGoal }  succesPatch= { statusAddTaks } callbackStatus= { changeStatusTask }/>
                  
                 </div>
               </div>
@@ -232,20 +272,20 @@ function App() {
         </div>
 
         <div id="resumeTodayTasks" className="min-height-30 mb-5">
-          <h4>Your tasks for today</h4>
           <ResumeToday tasks={ tasksReturned() } callbackEmail = { recoverTasksByEmail } />
         </div>
 
-        <div id="resumeGoals" className="min-height-30 mb-5">
-          <h4>Your Goals</h4>
-          
-
-          <ResumeGoals goals = { goalsReturned() } callbackEmaiGoals = { recoverGoalsByEmail }/>
+        <div>
+          <HeroFooter/>
         </div>
+
+        
         
 
         
       </div>
+
+      <Footer/>
     </div>
   );
 }

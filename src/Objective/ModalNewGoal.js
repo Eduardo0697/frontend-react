@@ -12,7 +12,7 @@ function ModalForm(props){
     return(
         <div className="modal-form-task align-self-center">
            
-            <button type="button" className="btn btn-lg btn-primary " data-toggle="modal" data-target={ referenceIdModal }>
+            <button type="button" className="btn btn-lg btn-success " data-toggle="modal" data-target={ referenceIdModal }>
                 New Goal
             </button>
             <div className="modal fade" id={ idModal } tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
