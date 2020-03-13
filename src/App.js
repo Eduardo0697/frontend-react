@@ -312,24 +312,26 @@ function App() {
 
       <div id="createGoal" className="min-height-30 mb-5 m-xl-big">
           <div className="row featurette">
-            <div className="col-md-7">
-              <h2 className="featurette-heading">Hey! Create a new <span className="text-muted">Goal !</span></h2>
+            <div className="col-md-7 mb-4 mb-md-0">
+              <h2 className="featurette-heading mt-md-2">Hey! Create a new <span className="text-muted">Goal !</span></h2>
               <p className="lead text-justify">
               First consider what you want to achieve, and then commit to it. Set SMART (specific, measureable, attainable, relevant and time-bound) goals that motivate you and write them down to make them feel tangible. Then plan the tasks you must take to realize your goal, and cross off each one as you work through them.
               </p>
+              <ModalNewGoal callbackNewGoal = { recoverNewGoal }  succesPost= { statusCrearObjetivo }/>
             </div>
             <div className="col-md-5">
                <div className="card  text-dark text-center">
                 <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" className="card-img" alt="..."></img>
                 <div className="card-img-overlay d-flex justify-content-center">
                   
-                    <ModalNewGoal callbackNewGoal = { recoverNewGoal }  succesPost= { statusCrearObjetivo }/>
+                    
                  
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <hr></hr>
         <div id="resumeGoals" className="min-height-30 mb-5">
           <ResumeGoals goals = { goalsReturned() } callbackEmaiGoals = { recoverGoalsByEmail }/>
         </div>
@@ -342,19 +344,21 @@ function App() {
                 <img src="https://images.unsplash.com/photo-1581007871115-f14bc016e0a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=615&q=80" className="card-img img-max-fit" alt="..."></img>
                 <div className="card-img-overlay d-flex justify-content-center">
                   
-                    <ModalCreateTask callbackNewTask= { addTaskToGoal }  succesPatch= { statusAddTaks } callbackStatus= { changeStatusTask }/>
+                    
                  
                 </div>
               </div>
             </div>
-            <div className="col-md-7 order-1 order-md-2">
+            <div className="col-md-7 order-1 order-md-2 mb-4 mb-md-0">
               <h2 className="featurette-heading">Now add <span className="text-muted">tasks </span> to a current goal</h2>
               <p className="lead text-justify">
               It is the work to be done.  Tasks keep us moving, and organizing them into a to-do list can be quite useful in helping us manage our time.  Tasks inform us of what, when and sometimes the how in our daily lives, but they can be ambiguous as to the why. 
               </p>
+              <ModalCreateTask callbackNewTask= { addTaskToGoal }  succesPatch= { statusAddTaks } callbackStatus= { changeStatusTask }/>
             </div>
           </div>
         </div>
+        <hr></hr>
 
         <div id="resumeTodayTasks" className="min-height-30 mb-5">
           <ResumeToday tasks={ tasksReturned() } callbackEmail = { recoverTasksByEmail } />

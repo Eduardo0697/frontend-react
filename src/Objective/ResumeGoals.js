@@ -16,6 +16,9 @@ function ResumeGoals(props){
 
     return(
         <div className="resume-today">
+            <div className="text-left mb-3">
+              <p className="h3">Your Goals</p>
+            </div>
 
             <div className="my-3">
                 <form>
@@ -35,9 +38,7 @@ function ResumeGoals(props){
                 </form>
             </div>
 
-            <div className="text-left mb-3">
-              <p className="h3">Your Goals</p>
-            </div>
+            
            
             <div className="card text-left mb-3" >
                 <ul className="list-group list-group-flush">
