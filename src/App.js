@@ -34,6 +34,52 @@ function App() {
   const [messageErrorGoals, setMessageErrorGoals] = useState(false);
   
 
+  ////
+  //Actualizar un task
+
+  const [ statusUpdateTask, setStatusUpdateTask] = useState(false);
+  const changeStatusUpdateTask = (formClosed) => {
+    if(formClosed){
+      setStatusUpdateTask(false)   
+    }
+  }
+
+  const updateTask = (taskUpdated) =>{
+    console.log('Actualizare el Task!')
+    console.log(taskUpdated)
+
+    const email = taskUpdated.emailAssociated;
+    const idObj = taskUpdated.idGoal;
+    const _id = taskUpdated._id;
+
+    const task ={
+      taskTitle : taskUpdated.taskTitle,
+      description : taskUpdated.description,
+      importance: taskUpdated.importance,
+      frequency: taskUpdated.frequency,
+      isAcomplished: taskUpdated.isAcomplished
+    }
+
+    axios.patch(`https://infinite-river-96726.herokuapp.com/objetivos/usuario/tasks/${_id}?email=${email}&idObj=${idObj}`,task)
+      .then((res) => {
+        console.log('Task actualizado')
+        console.log(res.request.status)
+        if(res.request.status === 200) setStatusUpdateTask(true)
+        else setStatusUpdateTask(false)
+
+      })
+      .catch((err) => {
+        console.log(err);
+        setStatusUpdateTask(false)
+      })
+    
+    
+  }
+
+
+  ///
+
+
   const recoverTasksByEmail = (email) => {
     //console.log('Este es el email desde App.js');
     //console.log(email);
@@ -93,7 +139,7 @@ function App() {
                           <div className="d-flex">
                               <div className="flex-grow-1">{ task.taskTitle }</div>
                               <button className="btn btn-outline-success mr-3" type="button" data-toggle="button" aria-pressed="false" autoComplete="off">Done</button>
-                              <ModalFormTask infoTask={ task }/>                 
+                              <ModalFormTask infoTask={ task } callbackUpdateTask = { updateTask } succesUpdate= { statusUpdateTask } callbackStatus= { changeStatusUpdateTask } />                 
                           </div>    
                       </li>
                   )
@@ -143,7 +189,7 @@ function App() {
     const idObj = goalUpdated.id;
 
     const goal ={
-      title : goalUpdated.taskTitle,
+      title : goalUpdated.title,
       description : goalUpdated.description,
       typeObjective: goalUpdated.typeObjective,
       length: goalUpdated.length,

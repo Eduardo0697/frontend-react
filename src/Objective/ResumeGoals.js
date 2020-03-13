@@ -29,7 +29,7 @@ function ResumeGoals(props){
                         </div>
                     </div>
                     <div className="form-group justify-content-center justify-content-md-end row mr-md-3">
-                        <small id="emailHelp" className="form-text text-muted">Please search your goals using your email</small>
+                        <small id="emailHelp" className="form-text text-muted">Please search your goals using your email or click to reload</small>
                     </div> 
                     
                 </form>

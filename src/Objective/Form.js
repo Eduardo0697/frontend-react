@@ -100,6 +100,7 @@ function Form(props){
 
     const onSubmitHandler = (event) => {
         console.log('Form Update Goal Valido')
+        console.log(title)
         setGoalUpdated( {
             id: props.info._id,
             title : title,
